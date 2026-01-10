@@ -27,6 +27,8 @@ concurrency:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+    outputs:
+      version_name: ${{ steps.version.outputs.version_name }}
 
     steps:
       - name: Checkout repository
