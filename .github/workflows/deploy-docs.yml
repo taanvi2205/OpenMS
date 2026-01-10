@@ -37,7 +37,19 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y doxygen graphviz cmake
+          sudo apt-get install -y \
+            doxygen \
+            graphviz \
+            cmake \
+            libxerces-c-dev \
+            libboost-all-dev \
+            libeigen3-dev \
+            libsvm-dev \
+            libglpk-dev \
+            libzip-dev \
+            zlib1g-dev \
+            libsqlite3-dev \
+            libbz2-dev
 
       - name: Determine version name
         id: version
@@ -62,7 +74,13 @@ jobs:
           cd build
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release \
-            -DBUILD_DOCUMENTATION=ON
+            -DBUILD_DOCUMENTATION=ON \
+            -DOPENMS_COVERAGE=OFF \
+            -DBOOST_USE_STATIC=OFF \
+            -DHAS_XSERVER=OFF \
+            -DWITH_GUI=OFF \
+            -DENABLE_TUTORIALS=OFF \
+            -DENABLE_UPDATE_CHECK=OFF
 
       - name: Build Doxygen documentation
         run: |
