@@ -119,49 +119,47 @@ jobs:
       - name: Create index page if missing
         run: |
           if [ ! -f "index.html" ]; then
-            cat > index.html << 'EOF'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=./nightly/html/index.html">
-    <title>OpenMS Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 100px auto;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 { color: #2c3e50; }
-        .version-links { margin-top: 30px; }
-        .version-links a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .version-links a:hover { background-color: #2980b9; }
-    </style>
-</head>
-<body>
-    <h1>OpenMS Documentation</h1>
-    <p>Redirecting to the latest documentation...</p>
-    <div class="version-links">
-        <a href="./nightly/html/index.html">Nightly</a>
-        <a href="./develop/html/index.html">Develop</a>
-    </div>
-</body>
-</html>
-EOF
+            cat > index.html <<EOF
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <meta http-equiv="refresh" content="0; url=./nightly/html/index.html">
+              <title>OpenMS Documentation</title>
+              <style>
+                  body {
+                      font-family: Arial, sans-serif;
+                      max-width: 800px;
+                      margin: 100px auto;
+                      padding: 20px;
+                      text-align: center;
+                  }
+                  h1 { color: #2c3e50; }
+                  .version-links { margin-top: 30px; }
+                  .version-links a {
+                      display: inline-block;
+                      margin: 10px;
+                      padding: 10px 20px;
+                      background-color: #3498db;
+                      color: white;
+                      text-decoration: none;
+                      border-radius: 5px;
+                  }
+                  .version-links a:hover { background-color: #2980b9; }
+              </style>
+          </head>
+          <body>
+              <h1>OpenMS Documentation</h1>
+              <p>Redirecting to the latest documentation...</p>
+              <div class="version-links">
+                  <a href="./nightly/html/index.html">Nightly</a>
+                  <a href="./develop/html/index.html">Develop</a>
+              </div>
+          </body>
+          </html>
+          EOF
           fi
-
-          # Create .nojekyll to prevent Jekyll processing
           touch .nojekyll
 
       - name: Commit and push changes
