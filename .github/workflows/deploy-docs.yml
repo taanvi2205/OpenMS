@@ -191,6 +191,15 @@ jobs:
           EOF
           touch .nojekyll
 
+      - name: Create versions.json for version selector
+        run: |
+          # List all version directories and create versions.json
+          cd docs
+          VERSIONS=$(ls -d */ 2>/dev/null | sed 's#/##' | jq -R -s -c 'split("\n")[:-1]')
+          echo "{\"versions\": $VERSIONS}" > versions.json
+          cat versions.json
+          cd ..
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
