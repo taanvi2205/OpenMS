@@ -90,7 +90,7 @@ jobs:
       - name: Build Doxygen documentation
         run: |
           cd build
-          cmake --build . --target doc
+          cmake --build . --target doc_minimal
 
       - name: Prepare documentation for deployment
         run: |
