@@ -51,7 +51,10 @@ jobs:
             libzip-dev \
             zlib1g-dev \
             libsqlite3-dev \
-            libbz2-dev
+            libbz2-dev \
+            qt6-base-dev \
+            libqt6core6 \
+            libqt6network6
 
       - name: Determine version name
         id: version
