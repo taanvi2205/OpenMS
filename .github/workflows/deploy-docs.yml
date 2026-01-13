@@ -79,7 +79,7 @@ jobs:
           cd build
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release \
-            -DBUILD_DOCUMENTATION=ON \
+            -DENABLE_DOCS=ON \
             -DOPENMS_COVERAGE=OFF \
             -DBOOST_USE_STATIC=OFF \
             -DHAS_XSERVER=OFF \
@@ -90,7 +90,7 @@ jobs:
       - name: Build Doxygen documentation
         run: |
           cd build
-          cmake --build . --target doc_html
+          cmake --build . --target doc
 
       - name: Prepare documentation for deployment
         run: |
