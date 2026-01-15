@@ -69,11 +69,6 @@ function buildVersionLinks(versions) {
         + x
         + '</a>');
 
-    // If no other versions available, show a message
-    if (docs.length === 0) {
-        docs.push('<span style="color: gray; padding: 8px;">No other versions available</span>');
-    }
-
     return docs;
 }
 
